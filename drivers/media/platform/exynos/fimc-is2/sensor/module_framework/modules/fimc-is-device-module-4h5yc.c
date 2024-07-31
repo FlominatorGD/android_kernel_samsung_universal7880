@@ -88,7 +88,15 @@ static int sensor_module_4h5yc_power_setpin(struct platform_device *pdev,
 	struct device *dev;
 	struct device_node *dnode;
 	int gpio_reset = 0;
+	int gpio_cam_2p8_en = 0;
+	int gpio_camio_1p8_en = 0;
 	int gpio_none = 0;
+#if defined(CONFIG_CAMERA_ON7X) || defined(CONFIG_CAMERA_A3Y17) || defined(CONFIG_CAMERA_J6)// front
+	int gpio_vtcam_1p2_en = 0;
+#else
+	int gpio_cam_core_en = 0;
+	int gpio_camaf_2p8_en = 0;
+#endif
 
 	BUG_ON(!pdev);
 
@@ -105,6 +113,46 @@ static int sensor_module_4h5yc_power_setpin(struct platform_device *pdev,
 	} else {
 		gpio_request_one(gpio_reset, GPIOF_OUT_INIT_LOW, "CAM_GPIO_OUTPUT_LOW");
 		gpio_free(gpio_reset);
+	}
+
+#if defined(CONFIG_CAMERA_ON7X) || defined(CONFIG_CAMERA_A3Y17) || defined(CONFIG_CAMERA_J6) // front
+	gpio_vtcam_1p2_en = of_get_named_gpio(dnode, "gpio_vtcam_1p2_en", 0);
+	if (!gpio_is_valid(gpio_vtcam_1p2_en)) {
+		dev_err(dev, "failed to get gpio_vtcam_1p2_en\n");
+	} else {
+		gpio_request_one(gpio_vtcam_1p2_en, GPIOF_OUT_INIT_LOW, "CAM_GPIO_OUTPUT_LOW");
+		gpio_free(gpio_vtcam_1p2_en);
+	}
+#else
+	gpio_cam_core_en = of_get_named_gpio(dnode, "gpio_cam_core_en", 0);
+	if (!gpio_is_valid(gpio_cam_core_en)) {
+		dev_err(dev, "failed to get gpio_cam_core_en\n");
+	} else {
+		gpio_request_one(gpio_cam_core_en, GPIOF_OUT_INIT_LOW, "CAM_GPIO_OUTPUT_LOW");
+		gpio_free(gpio_cam_core_en);
+	}
+	gpio_camaf_2p8_en = of_get_named_gpio(dnode, "gpio_camaf_2p8_en", 0);
+	if (!gpio_is_valid(gpio_camaf_2p8_en)) {
+		dev_err(dev, "failed to get gpio_camaf_2p8_en\n");
+	} else {
+		gpio_request_one(gpio_camaf_2p8_en, GPIOF_OUT_INIT_LOW, "CAM_GPIO_OUTPUT_LOW");
+		gpio_free(gpio_camaf_2p8_en);
+	}
+#endif
+	gpio_camio_1p8_en = of_get_named_gpio(dnode, "gpio_camio_1p8_en", 0);
+	if (!gpio_is_valid(gpio_camio_1p8_en)) {
+		dev_err(dev, "failed to get gpio_camio_1p8_en\n");
+	} else {
+		gpio_request_one(gpio_camio_1p8_en, GPIOF_OUT_INIT_LOW, "CAM_GPIO_OUTPUT_LOW");
+		gpio_free(gpio_camio_1p8_en);
+	}
+
+	gpio_cam_2p8_en = of_get_named_gpio(dnode, "gpio_cam_2p8_en", 0);
+	if (!gpio_is_valid(gpio_cam_2p8_en)) {
+		dev_err(dev, "failed to get gpio_cam_2p8_en\n");
+	} else {
+		gpio_request_one(gpio_cam_2p8_en, GPIOF_OUT_INIT_LOW, "CAM_GPIO_OUTPUT_LOW");
+		gpio_free(gpio_cam_2p8_en);
 	}
 
 	SET_PIN_INIT(pdata, SENSOR_SCENARIO_NORMAL, GPIO_SCENARIO_ON);

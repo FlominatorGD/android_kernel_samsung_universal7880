@@ -83,5 +83,7 @@ obj-$(CONFIG_TOUCHSCREEN_MXT540E)       += mxt540e.o
 obj-$(CONFIG_TOUCHSCREEN_SYNAPTICS_I2C_DSX) += synaptics_dsx/
 obj-$(CONFIG_TOUCHSCREEN_FTS)          += stm/
 obj-$(CONFIG_TOUCHSCREEN_MELFAS_MMS449)	+= melfas_mms400/
+obj-$(CONFIG_TOUCHSCREEN_IST3032C) += imagis_30xxc/
+obj-$(CONFIG_TOUCHSCREEN_IST3038H) += imagis_30xxh/
 obj-$(CONFIG_TOUCHSCREEN_ZINITIX_ZT75XX) += zinitix/
 obj-$(CONFIG_TOUCHSCREEN_SEC_TS)	+= sec_ts/

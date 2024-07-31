@@ -4,4 +4,5 @@ obj-$(CONFIG_DISPLAY_USE_INFO) += dpui.o
 
 obj-$(CONFIG_PANEL_S6E3FA3_A7Y17) += s6e3fa3_a7y17_lcd_ctrl.o dynamic_aid.o
 obj-$(CONFIG_PANEL_S6E3FA3_A5Y17) += s6e3fa3_a7y17_lcd_ctrl.o dynamic_aid.o
+obj-$(CONFIG_PANEL_S6E3AA2_A3Y17) += s6e3aa2_a3y17_lcd_ctrl.o dynamic_aid.o
 
