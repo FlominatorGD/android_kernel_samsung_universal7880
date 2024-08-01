@@ -21,6 +21,8 @@
 #include "s6e3fa3_a7y17_param.h"
 #elif defined(CONFIG_PANEL_S6E3FA3_A5Y17)
 #include "s6e3fa3_a5y17_param.h"
+#elif defined(CONFIG_PANEL_S6E3FA3_A3Y17)
+#include "s6e3fa3_a3y17_param.h"
 #endif
 
 #if defined(CONFIG_EXYNOS_DECON_MDNIE_LITE)
@@ -29,6 +31,8 @@
 #include "mdnie_lite_table_a7y17.h"
 #elif defined(CONFIG_PANEL_S6E3FA3_A5Y17)
 #include "mdnie_lite_table_a5y17.h"
+#elif defined(CONFIG_PANEL_S6E3FA3_A3Y17)
+#include "mdnie_lite_table_a3y17.h"
 #endif
 #endif
 
@@ -40,6 +44,8 @@
 #define DPUI_MODEL_NAME		"AMS568MW"
 #elif defined(CONFIG_PANEL_S6E3FA3_A5Y17)
 #define DPUI_MODEL_NAME		"AMS520MV"
+#elif defined(CONFIG_PANEL_S6E3FA3_A3Y17)
+#define DPUI_MODEL_NAME		"AMS474MM01"
 #endif
 #endif
 

@@ -15,6 +15,8 @@
 
 #if defined(CONFIG_CAMERA_A5Y17) || defined(CONFIG_CAMERA_A7Y17)
 #include "fimc-is-vendor-config_a5a7y17.h"
+#else
+#include "fimc-is-vendor-config_a3y17.h"
 #endif
 
 #endif

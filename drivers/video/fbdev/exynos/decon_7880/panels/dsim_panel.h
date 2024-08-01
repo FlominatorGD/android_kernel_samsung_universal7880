@@ -18,8 +18,8 @@ extern struct mipi_dsim_lcd_driver *mipi_lcd_driver;
 extern struct mipi_dsim_lcd_driver s6e3fa3_mipi_lcd_driver;
 #elif defined(CONFIG_PANEL_S6E3FA3_A5Y17)
 extern struct mipi_dsim_lcd_driver s6e3fa3_mipi_lcd_driver;
-#elif defined(CONFIG_PANEL_S6E3AA2_A3Y17)
-extern struct mipi_dsim_lcd_driver s6e3aa2_mipi_lcd_driver;
+#elif defined(CONFIG_PANEL_S6E3FA3_A3Y17)
+extern struct mipi_dsim_lcd_driver s6e3fa3_mipi_lcd_driver;
 #endif
 
 extern int dsim_panel_ops_init(struct dsim_device *dsim);
